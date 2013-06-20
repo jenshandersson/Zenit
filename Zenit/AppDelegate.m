@@ -7,20 +7,23 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LocationManager.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "MapViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[LocationManager shared] startUpdatingLocation];
     NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:8 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
     [NSURLCache setSharedURLCache:URLCache];
+    [GMSServices provideAPIKey:@"AIzaSyC2ikaew0f0Sl2iwXrJFYu0BS92D6sxK1k"];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
-    UIViewController *viewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+    MapViewController *viewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
