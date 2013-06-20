@@ -1,10 +1,13 @@
 PODS:
   - AFNetworking (1.3.1)
+  - Google-Maps-iOS-SDK (1.3.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - Google-Maps-iOS-SDK
 
 SPEC CHECKSUMS:
   AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
+  Google-Maps-iOS-SDK: b768a1077faca50212cd9f5596423ccf844f144d
 
 COCOAPODS: 0.21.0.rc1

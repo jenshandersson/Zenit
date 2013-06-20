@@ -1,2 +1,3 @@
-platform :ios, "5.0"
+platform :ios, "5.1"
 pod "AFNetworking"
+pod "Google-Maps-iOS-SDK"
