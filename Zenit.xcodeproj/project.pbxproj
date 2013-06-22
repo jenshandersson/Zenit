@@ -15,6 +15,7 @@
 		B4B051221776459200A97A60 /* PlacesApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B051211776459200A97A60 /* PlacesApiClient.m */; };
 		B4B05124177646E500A97A60 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B05123177646E500A97A60 /* CoreLocation.framework */; };
 		B4B0512817764A6F00A97A60 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0512717764A6F00A97A60 /* Place.m */; };
+		B4B0512B1776549F00A97A60 /* WeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0512A1776549F00A97A60 /* WeatherData.m */; };
 		B4FD82581773A3650063B76D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FD82571773A3650063B76D /* UIKit.framework */; };
 		B4FD825A1773A3650063B76D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FD82591773A3650063B76D /* Foundation.framework */; };
 		B4FD825C1773A3650063B76D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FD825B1773A3650063B76D /* CoreGraphics.framework */; };
@@ -43,6 +44,8 @@
 		B4B05123177646E500A97A60 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B4B0512617764A6F00A97A60 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		B4B0512717764A6F00A97A60 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		B4B051291776549F00A97A60 /* WeatherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherData.h; sourceTree = "<group>"; };
+		B4B0512A1776549F00A97A60 /* WeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherData.m; sourceTree = "<group>"; };
 		B4FD82541773A3650063B76D /* Zenit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zenit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FD82571773A3650063B76D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B4FD82591773A3650063B76D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,6 +84,8 @@
 			children = (
 				B4B0512617764A6F00A97A60 /* Place.h */,
 				B4B0512717764A6F00A97A60 /* Place.m */,
+				B4B051291776549F00A97A60 /* WeatherData.h */,
+				B4B0512A1776549F00A97A60 /* WeatherData.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 				B4B0511B1773AF2B00A97A60 /* LocationManager.m in Sources */,
 				B4B051221776459200A97A60 /* PlacesApiClient.m in Sources */,
 				B4B0512817764A6F00A97A60 /* Place.m in Sources */,
+				B4B0512B1776549F00A97A60 /* WeatherData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
