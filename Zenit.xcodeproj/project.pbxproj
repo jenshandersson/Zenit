@@ -12,6 +12,9 @@
 		B4B0511B1773AF2B00A97A60 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0511A1773AF2B00A97A60 /* LocationManager.m */; };
 		B4B0511D1773B3AA00A97A60 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B0511C1773B3AA00A97A60 /* Icon.png */; };
 		B4B0511F1773B3AC00A97A60 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B0511E1773B3AC00A97A60 /* Icon@2x.png */; };
+		B4B051221776459200A97A60 /* PlacesApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B051211776459200A97A60 /* PlacesApiClient.m */; };
+		B4B05124177646E500A97A60 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B05123177646E500A97A60 /* CoreLocation.framework */; };
+		B4B0512817764A6F00A97A60 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0512717764A6F00A97A60 /* Place.m */; };
 		B4FD82581773A3650063B76D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FD82571773A3650063B76D /* UIKit.framework */; };
 		B4FD825A1773A3650063B76D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FD82591773A3650063B76D /* Foundation.framework */; };
 		B4FD825C1773A3650063B76D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FD825B1773A3650063B76D /* CoreGraphics.framework */; };
@@ -35,6 +38,11 @@
 		B4B0511A1773AF2B00A97A60 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		B4B0511C1773B3AA00A97A60 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		B4B0511E1773B3AC00A97A60 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		B4B051201776459200A97A60 /* PlacesApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesApiClient.h; sourceTree = "<group>"; };
+		B4B051211776459200A97A60 /* PlacesApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesApiClient.m; sourceTree = "<group>"; };
+		B4B05123177646E500A97A60 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B4B0512617764A6F00A97A60 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		B4B0512717764A6F00A97A60 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		B4FD82541773A3650063B76D /* Zenit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zenit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FD82571773A3650063B76D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B4FD82591773A3650063B76D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -57,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B05124177646E500A97A60 /* CoreLocation.framework in Frameworks */,
 				B4FD82581773A3650063B76D /* UIKit.framework in Frameworks */,
 				B4FD825A1773A3650063B76D /* Foundation.framework in Frameworks */,
 				B4FD825C1773A3650063B76D /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4B0512517764A1E00A97A60 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B4B0512617764A6F00A97A60 /* Place.h */,
+				B4B0512717764A6F00A97A60 /* Place.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B4FD824B1773A3650063B76D = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +108,7 @@
 		B4FD82561773A3650063B76D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4B05123177646E500A97A60 /* CoreLocation.framework */,
 				B4FD82571773A3650063B76D /* UIKit.framework */,
 				B4FD82591773A3650063B76D /* Foundation.framework */,
 				B4FD825B1773A3650063B76D /* CoreGraphics.framework */,
@@ -108,6 +127,7 @@
 				B4B051161773AD3900A97A60 /* MapViewController.xib */,
 				B4B051191773AF2B00A97A60 /* LocationManager.h */,
 				B4B0511A1773AF2B00A97A60 /* LocationManager.m */,
+				B4B0512517764A1E00A97A60 /* Models */,
 				B4FD82621773A3650063B76D /* Networking */,
 				B4FD82601773A3650063B76D /* Supporting Files */,
 			);
@@ -133,6 +153,8 @@
 			children = (
 				B4FD82631773A3650063B76D /* ZenitAPIClient.h */,
 				B4FD82641773A3650063B76D /* ZenitAPIClient.m */,
+				B4B051201776459200A97A60 /* PlacesApiClient.h */,
+				B4B051211776459200A97A60 /* PlacesApiClient.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -243,6 +265,8 @@
 				B4FD826E1773A3650063B76D /* AppDelegate.m in Sources */,
 				B4B051171773AD3900A97A60 /* MapViewController.m in Sources */,
 				B4B0511B1773AF2B00A97A60 /* LocationManager.m in Sources */,
+				B4B051221776459200A97A60 /* PlacesApiClient.m in Sources */,
+				B4B0512817764A6F00A97A60 /* Place.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

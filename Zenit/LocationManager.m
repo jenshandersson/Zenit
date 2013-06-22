@@ -41,6 +41,8 @@
     [self willChangeValueForKey:@"currentLocation"];
     _currentLocation = [locations lastObject];
     [self didChangeValueForKey:@"currentLocation"];
+    if (self.updateBlock)
+        self.updateBlock(_currentLocation);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {

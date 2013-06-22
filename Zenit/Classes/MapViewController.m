@@ -8,6 +8,8 @@
 
 #import "MapViewController.h"
 #import "LocationManager.h"
+#import "PlacesApiClient.h"
+#import "Place.h"
 
 @interface MapViewController ()
 
@@ -28,22 +30,26 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    [LocationManager shared].updateBlock = ^(CLLocation *newLocation) {
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude longitude:newLocation.coordinate.longitude zoom:14];
+        [self.mapView setCamera:camera];
+    };
     self.mapView.myLocationEnabled = YES;
     
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.title = @"Sydney";
-    marker.snippet = @"Australia";
-    marker.map = self.mapView;
+}
+
+- (void)fetchPlaces {
+    [[PlacesApiClient sharedClient] getNearByPlaces:^(AFHTTPRequestOperation *operation, NSArray *places) {
+        for (Place *place in places) {
+            place.marker.map = self.mapView;
+        }
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    CLLocation *l = [LocationManager shared].currentLocation;
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:l.coordinate.latitude longitude:l.coordinate.longitude zoom:14];
-    [self.mapView setCamera:camera];
+    
+    [self performSelector:@selector(fetchPlaces) withObject:nil afterDelay:1];
 }
 
 - (void)didReceiveMemoryWarning
