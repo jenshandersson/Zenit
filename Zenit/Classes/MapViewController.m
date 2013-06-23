@@ -11,6 +11,7 @@
 #import "PlacesApiClient.h"
 #import "ZenitAPIClient.h"
 #import "Place.h"
+#import "Venue.h"
 #import "WeatherData.h"
 
 @interface MapViewController ()
@@ -45,6 +46,12 @@
     [[PlacesApiClient sharedClient] getNearByPlaces:^(AFHTTPRequestOperation *operation, NSArray *places) {
         for (Place *place in places) {
             place.marker.map = self.mapView;
+        }
+    }];
+    
+    [[ZenitAPIClient sharedClient] closeVenues:^(NSArray *venues) {
+        for (Venue *venue in venues) {
+            venue.marker.map = self.mapView;
         }
     }];
     

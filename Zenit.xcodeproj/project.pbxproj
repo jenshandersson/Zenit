@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B43AEC631777490C00607266 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC621777490C00607266 /* Venue.m */; };
 		B4B051171773AD3900A97A60 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B051151773AD3900A97A60 /* MapViewController.m */; };
 		B4B051181773AD3900A97A60 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B051161773AD3900A97A60 /* MapViewController.xib */; };
 		B4B0511B1773AF2B00A97A60 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0511A1773AF2B00A97A60 /* LocationManager.m */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		6308F8D6EECD42B98555A874 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F981F2CE2F24F208D4B2CD4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		B43AEC611777490C00607266 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		B43AEC621777490C00607266 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		B4B051141773AD3900A97A60 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Classes/MapViewController.h; sourceTree = "<group>"; };
 		B4B051151773AD3900A97A60 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Classes/MapViewController.m; sourceTree = "<group>"; };
 		B4B051161773AD3900A97A60 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = Classes/MapViewController.xib; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				B4B0512717764A6F00A97A60 /* Place.m */,
 				B4B051291776549F00A97A60 /* WeatherData.h */,
 				B4B0512A1776549F00A97A60 /* WeatherData.m */,
+				B43AEC611777490C00607266 /* Venue.h */,
+				B43AEC621777490C00607266 /* Venue.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				B4B051221776459200A97A60 /* PlacesApiClient.m in Sources */,
 				B4B0512817764A6F00A97A60 /* Place.m in Sources */,
 				B4B0512B1776549F00A97A60 /* WeatherData.m in Sources */,
+				B43AEC631777490C00607266 /* Venue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
