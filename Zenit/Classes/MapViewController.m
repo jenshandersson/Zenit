@@ -13,6 +13,7 @@
 #import "Place.h"
 #import "Venue.h"
 #import "WeatherData.h"
+#import "AddViewController.h"
 
 @interface MapViewController ()
 
@@ -74,4 +75,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addButtonPressed:(id)sender {
+    AddViewController *addVC = [[AddViewController alloc] init];
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:addVC];
+    [self presentViewController:navCon animated:YES completion:nil];
+}
 @end

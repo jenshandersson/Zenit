@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B43AEC631777490C00607266 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC621777490C00607266 /* Venue.m */; };
+		B43AEC66177756D900607266 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC65177756D900607266 /* PlaceViewController.m */; };
+		B43AEC6A177764B200607266 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC68177764B200607266 /* AddViewController.m */; };
+		B43AEC6B177764B200607266 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B43AEC69177764B200607266 /* AddViewController.xib */; };
 		B4B051171773AD3900A97A60 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B051151773AD3900A97A60 /* MapViewController.m */; };
 		B4B051181773AD3900A97A60 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B051161773AD3900A97A60 /* MapViewController.xib */; };
 		B4B0511B1773AF2B00A97A60 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0511A1773AF2B00A97A60 /* LocationManager.m */; };
@@ -35,6 +38,11 @@
 		7F981F2CE2F24F208D4B2CD4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		B43AEC611777490C00607266 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		B43AEC621777490C00607266 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		B43AEC64177756D900607266 /* PlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
+		B43AEC65177756D900607266 /* PlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
+		B43AEC67177764B200607266 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddViewController.h; path = Classes/AddViewController.h; sourceTree = "<group>"; };
+		B43AEC68177764B200607266 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddViewController.m; path = Classes/AddViewController.m; sourceTree = "<group>"; };
+		B43AEC69177764B200607266 /* AddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddViewController.xib; path = Classes/AddViewController.xib; sourceTree = "<group>"; };
 		B4B051141773AD3900A97A60 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Classes/MapViewController.h; sourceTree = "<group>"; };
 		B4B051151773AD3900A97A60 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Classes/MapViewController.m; sourceTree = "<group>"; };
 		B4B051161773AD3900A97A60 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = Classes/MapViewController.xib; sourceTree = "<group>"; };
@@ -135,6 +143,11 @@
 				B4B051141773AD3900A97A60 /* MapViewController.h */,
 				B4B051151773AD3900A97A60 /* MapViewController.m */,
 				B4B051161773AD3900A97A60 /* MapViewController.xib */,
+				B43AEC64177756D900607266 /* PlaceViewController.h */,
+				B43AEC65177756D900607266 /* PlaceViewController.m */,
+				B43AEC67177764B200607266 /* AddViewController.h */,
+				B43AEC68177764B200607266 /* AddViewController.m */,
+				B43AEC69177764B200607266 /* AddViewController.xib */,
 				B4B051191773AF2B00A97A60 /* LocationManager.h */,
 				B4B0511A1773AF2B00A97A60 /* LocationManager.m */,
 				B4B0512517764A1E00A97A60 /* Models */,
@@ -229,6 +242,7 @@
 				B4B051181773AD3900A97A60 /* MapViewController.xib in Resources */,
 				B4B0511D1773B3AA00A97A60 /* Icon.png in Resources */,
 				B4B0511F1773B3AC00A97A60 /* Icon@2x.png in Resources */,
+				B43AEC6B177764B200607266 /* AddViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +293,8 @@
 				B4B0512817764A6F00A97A60 /* Place.m in Sources */,
 				B4B0512B1776549F00A97A60 /* WeatherData.m in Sources */,
 				B43AEC631777490C00607266 /* Venue.m in Sources */,
+				B43AEC66177756D900607266 /* PlaceViewController.m in Sources */,
+				B43AEC6A177764B200607266 /* AddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +375,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Zenit/Zenit-Prefix.pch";
 				INFOPLIST_FILE = "Zenit/Zenit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
@@ -373,7 +389,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Zenit/Zenit-Prefix.pch";
 				INFOPLIST_FILE = "Zenit/Zenit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
