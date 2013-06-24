@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42CA9681778CA4B005E887D /* CLLocation+LocationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B42CA9671778CA4B005E887D /* CLLocation+LocationExtensions.m */; };
 		B43AEC631777490C00607266 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC621777490C00607266 /* Venue.m */; };
 		B43AEC66177756D900607266 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC65177756D900607266 /* PlaceViewController.m */; };
 		B43AEC6A177764B200607266 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC68177764B200607266 /* AddViewController.m */; };
 		B43AEC6B177764B200607266 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B43AEC69177764B200607266 /* AddViewController.xib */; };
-		B473D49C1778907900BA6A37 /* spa.c in Sources */ = {isa = PBXBuildFile; fileRef = B473D49A1778907900BA6A37 /* spa.c */; };
-		B473D49F177897C300BA6A37 /* JASolarPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B473D49E177897C300BA6A37 /* JASolarPosition.m */; };
 		B4B051171773AD3900A97A60 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B051151773AD3900A97A60 /* MapViewController.m */; };
 		B4B051181773AD3900A97A60 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B051161773AD3900A97A60 /* MapViewController.xib */; };
 		B4B0511B1773AF2B00A97A60 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0511A1773AF2B00A97A60 /* LocationManager.m */; };
@@ -38,6 +37,8 @@
 /* Begin PBXFileReference section */
 		6308F8D6EECD42B98555A874 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F981F2CE2F24F208D4B2CD4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		B42CA9661778CA4B005E887D /* CLLocation+LocationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+LocationExtensions.h"; sourceTree = "<group>"; };
+		B42CA9671778CA4B005E887D /* CLLocation+LocationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+LocationExtensions.m"; sourceTree = "<group>"; };
 		B43AEC611777490C00607266 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		B43AEC621777490C00607266 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		B43AEC64177756D900607266 /* PlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
@@ -144,6 +145,8 @@
 		B4FD82561773A3650063B76D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B42CA9661778CA4B005E887D /* CLLocation+LocationExtensions.h */,
+				B42CA9671778CA4B005E887D /* CLLocation+LocationExtensions.m */,
 				B473D4971778905F00BA6A37 /* SPA */,
 				B4B05123177646E500A97A60 /* CoreLocation.framework */,
 				B4FD82571773A3650063B76D /* UIKit.framework */,
@@ -305,6 +308,7 @@
 			files = (
 				B4FD82651773A3650063B76D /* ZenitAPIClient.m in Sources */,
 				B4FD826B1773A3650063B76D /* main.m in Sources */,
+				B42CA9681778CA4B005E887D /* CLLocation+LocationExtensions.m in Sources */,
 				B4FD826E1773A3650063B76D /* AppDelegate.m in Sources */,
 				B4B051171773AD3900A97A60 /* MapViewController.m in Sources */,
 				B4B0511B1773AF2B00A97A60 /* LocationManager.m in Sources */,
@@ -314,8 +318,6 @@
 				B43AEC631777490C00607266 /* Venue.m in Sources */,
 				B43AEC66177756D900607266 /* PlaceViewController.m in Sources */,
 				B43AEC6A177764B200607266 /* AddViewController.m in Sources */,
-				B473D49C1778907900BA6A37 /* spa.c in Sources */,
-				B473D49F177897C300BA6A37 /* JASolarPosition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +399,7 @@
 				GCC_PREFIX_HEADER = "Zenit/Zenit-Prefix.pch";
 				INFOPLIST_FILE = "Zenit/Zenit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
@@ -411,6 +414,7 @@
 				GCC_PREFIX_HEADER = "Zenit/Zenit-Prefix.pch";
 				INFOPLIST_FILE = "Zenit/Zenit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
