@@ -36,6 +36,9 @@
     // Do any additional setup after loading the view from its nib.
     [LocationManager shared].updateBlock = ^(CLLocation *newLocation) {
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude longitude:newLocation.coordinate.longitude zoom:16];
+        
+        
+        [self fetchPlaces];
         [self.mapView setCamera:camera];
     };
     self.mapView.myLocationEnabled = YES;
@@ -65,8 +68,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    [self performSelector:@selector(fetchPlaces) withObject:nil afterDelay:1];
 }
 
 - (void)didReceiveMemoryWarning
