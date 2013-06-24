@@ -11,6 +11,8 @@
 		B43AEC66177756D900607266 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC65177756D900607266 /* PlaceViewController.m */; };
 		B43AEC6A177764B200607266 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC68177764B200607266 /* AddViewController.m */; };
 		B43AEC6B177764B200607266 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B43AEC69177764B200607266 /* AddViewController.xib */; };
+		B473D49C1778907900BA6A37 /* spa.c in Sources */ = {isa = PBXBuildFile; fileRef = B473D49A1778907900BA6A37 /* spa.c */; };
+		B473D49F177897C300BA6A37 /* JASolarPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B473D49E177897C300BA6A37 /* JASolarPosition.m */; };
 		B4B051171773AD3900A97A60 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B051151773AD3900A97A60 /* MapViewController.m */; };
 		B4B051181773AD3900A97A60 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B051161773AD3900A97A60 /* MapViewController.xib */; };
 		B4B0511B1773AF2B00A97A60 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0511A1773AF2B00A97A60 /* LocationManager.m */; };
@@ -43,6 +45,10 @@
 		B43AEC67177764B200607266 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddViewController.h; path = Classes/AddViewController.h; sourceTree = "<group>"; };
 		B43AEC68177764B200607266 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddViewController.m; path = Classes/AddViewController.m; sourceTree = "<group>"; };
 		B43AEC69177764B200607266 /* AddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddViewController.xib; path = Classes/AddViewController.xib; sourceTree = "<group>"; };
+		B473D4991778907900BA6A37 /* spa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spa.h; sourceTree = "<group>"; };
+		B473D49A1778907900BA6A37 /* spa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = spa.c; sourceTree = "<group>"; };
+		B473D49D177897C300BA6A37 /* JASolarPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASolarPosition.h; sourceTree = "<group>"; };
+		B473D49E177897C300BA6A37 /* JASolarPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASolarPosition.m; sourceTree = "<group>"; };
 		B4B051141773AD3900A97A60 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Classes/MapViewController.h; sourceTree = "<group>"; };
 		B4B051151773AD3900A97A60 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Classes/MapViewController.m; sourceTree = "<group>"; };
 		B4B051161773AD3900A97A60 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = Classes/MapViewController.xib; sourceTree = "<group>"; };
@@ -90,6 +96,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B473D4971778905F00BA6A37 /* SPA */ = {
+			isa = PBXGroup;
+			children = (
+				B473D4991778907900BA6A37 /* spa.h */,
+				B473D49A1778907900BA6A37 /* spa.c */,
+				B473D49D177897C300BA6A37 /* JASolarPosition.h */,
+				B473D49E177897C300BA6A37 /* JASolarPosition.m */,
+			);
+			name = SPA;
+			path = Frameworks/SPA;
+			sourceTree = "<group>";
+		};
 		B4B0512517764A1E00A97A60 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +144,7 @@
 		B4FD82561773A3650063B76D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B473D4971778905F00BA6A37 /* SPA */,
 				B4B05123177646E500A97A60 /* CoreLocation.framework */,
 				B4FD82571773A3650063B76D /* UIKit.framework */,
 				B4FD82591773A3650063B76D /* Foundation.framework */,
@@ -295,6 +314,8 @@
 				B43AEC631777490C00607266 /* Venue.m in Sources */,
 				B43AEC66177756D900607266 /* PlaceViewController.m in Sources */,
 				B43AEC6A177764B200607266 /* AddViewController.m in Sources */,
+				B473D49C1778907900BA6A37 /* spa.c in Sources */,
+				B473D49F177897C300BA6A37 /* JASolarPosition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
