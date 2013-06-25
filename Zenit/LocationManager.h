@@ -12,7 +12,7 @@ typedef void(^LocationUpdateBLock)(CLLocation *newLocation);
 
 @interface LocationManager : CLLocationManager <CLLocationManagerDelegate>
 
-@property (strong, nonatomic, readonly) CLLocation *currentLocation;
+@property (copy, nonatomic, readonly) CLLocation *currentLocation;
 @property (strong, nonatomic, readonly) CLGeocoder *sharedGeocoder;
 @property (nonatomic, copy) LocationUpdateBLock updateBlock;
 

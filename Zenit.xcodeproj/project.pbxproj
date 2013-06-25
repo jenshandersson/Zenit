@@ -12,6 +12,8 @@
 		B43AEC66177756D900607266 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC65177756D900607266 /* PlaceViewController.m */; };
 		B43AEC6A177764B200607266 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43AEC68177764B200607266 /* AddViewController.m */; };
 		B43AEC6B177764B200607266 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B43AEC69177764B200607266 /* AddViewController.xib */; };
+		B473D4A01779730600BA6A37 /* JASolarPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = B473D49E177897C300BA6A37 /* JASolarPosition.m */; };
+		B473D4A11779730900BA6A37 /* spa.c in Sources */ = {isa = PBXBuildFile; fileRef = B473D49A1778907900BA6A37 /* spa.c */; };
 		B4B051171773AD3900A97A60 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B051151773AD3900A97A60 /* MapViewController.m */; };
 		B4B051181773AD3900A97A60 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B051161773AD3900A97A60 /* MapViewController.xib */; };
 		B4B0511B1773AF2B00A97A60 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0511A1773AF2B00A97A60 /* LocationManager.m */; };
@@ -318,6 +320,8 @@
 				B43AEC631777490C00607266 /* Venue.m in Sources */,
 				B43AEC66177756D900607266 /* PlaceViewController.m in Sources */,
 				B43AEC6A177764B200607266 /* AddViewController.m in Sources */,
+				B473D4A01779730600BA6A37 /* JASolarPosition.m in Sources */,
+				B473D4A11779730900BA6A37 /* spa.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,12 +399,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F981F2CE2F24F208D4B2CD4 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jens Andersson (QHVPTVG3LT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jens Andersson (QHVPTVG3LT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Zenit/Zenit-Prefix.pch";
 				INFOPLIST_FILE = "Zenit/Zenit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7491B142-8C29-434B-A151-54EB9B810A91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7491B142-8C29-434B-A151-54EB9B810A91";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -410,12 +418,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F981F2CE2F24F208D4B2CD4 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jens Andersson (QHVPTVG3LT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jens Andersson (QHVPTVG3LT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Zenit/Zenit-Prefix.pch";
 				INFOPLIST_FILE = "Zenit/Zenit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7491B142-8C29-434B-A151-54EB9B810A91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7491B142-8C29-434B-A151-54EB9B810A91";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};

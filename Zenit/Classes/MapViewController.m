@@ -15,6 +15,7 @@
 #import "WeatherData.h"
 #import "AddViewController.h"
 #import "CLLocation+LocationExtensions.h"
+#import "JASolarPosition.h"
 
 #define deg2rad(degrees) (degrees * 0.01745327)
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -58,7 +59,9 @@
 
 - (void)updateMapDrawings {
     CLLocation *newLocation = [LocationManager shared].currentLocation;
-    CLLocation *sun = [MapViewController sunLocationFromObserver:newLocation andAzimuth:self.slider.value];
+    
+    
+    CLLocation *sun = [MapViewController sunLocationFromObserver:newLocation];
     GMSMutablePath *path = [GMSMutablePath path];
     [path addCoordinate:sun.coordinate];
     [path addCoordinate:newLocation.coordinate];
@@ -69,11 +72,6 @@
 
 - (void)fetchPlaces {
     [self.mapView animateToBearing:0];
-    [[PlacesApiClient sharedClient] getNearByPlaces:^(AFHTTPRequestOperation *operation, NSArray *places) {
-        for (Place *place in places) {
-            place.marker.map = self.mapView;
-        }
-    }];
     
     [[ZenitAPIClient sharedClient] closeVenues:^(NSArray *venues) {
         for (Venue *venue in venues) {
@@ -86,6 +84,7 @@
         UIBarButtonItem *tempButton = [[UIBarButtonItem alloc] initWithTitle:weather.tempString style:UIBarButtonItemStylePlain target:nil action:nil];
         self.navigationItem.leftBarButtonItem = tempButton;
     }];
+    [self updateMapDrawings];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -108,11 +107,14 @@
     [self presentViewController:navCon animated:YES completion:nil];
 }
 
-+ (CLLocation *)sunLocationFromObserver:(CLLocation *)observer andAzimuth:(CLLocationDegrees)azimuth {
-    
++ (CLLocation *)sunLocationFromObserver:(CLLocation *)observer {
     static CLLocationDistance radiusInMeter = 10000;
     
-    CGFloat altitude = deg2rad(47);
+    spa_data spa = [JASolarPosition azimuthAtLocation:observer andDate:[NSDate date]];
+    
+    CLLocationDegrees azimuth = spa.azimuth;
+    
+    CGFloat altitude = deg2rad(spa.incidence);
     
     CLLocation *l = [observer locationAtDistance:radiusInMeter andBearing:azimuth];
     
