@@ -13,5 +13,9 @@
 @interface JASolarPosition : NSObject
 
 + (spa_data)azimuthAtLocation:(CLLocation *)location andDate:(NSDate *)date;
++ (NSString *)timeStringWithInt:(NSInteger)number;
++ (NSString *)dateStringFromFloat:(CGFloat)percent;
++ (NSDate *)dateFromFloat:(CGFloat)percent;
++ (CGFloat)timeAsFloat:(NSDate *)date;
 
 @end

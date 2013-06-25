@@ -10,13 +10,13 @@
 #import "PlaceViewController.h"
 #import "ZenitAPIClient.h"
 #import "Venue.h"
+#import "JASolarPosition.h"
 
 @interface AddViewController ()
 
 @end
 
-static NSInteger minHour = 8;
-static NSInteger maxHour = 22;
+
 
 @implementation AddViewController
 
@@ -43,39 +43,10 @@ static NSInteger maxHour = 22;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.timeSlider.value = [self timeAsFloat:[NSDate date]];
-    self.timeLabel.text = [self dateFromFloat:self.timeSlider.value];
+    self.timeSlider.value = [JASolarPosition timeAsFloat:[NSDate date]];
+    self.timeLabel.text = [JASolarPosition dateStringFromFloat:self.timeSlider.value];
 }
 
-- (CGFloat)timeAsFloat:(NSDate *)date {
-    NSInteger interval = (maxHour - minHour) * 60;
-    NSDateComponents *componens = [[NSCalendar currentCalendar] components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:date];
-    NSInteger minutes = (componens.hour - minHour) * 60 + componens.minute;
-    CGFloat percent = 1.0f * minutes / interval;
-    return percent;
-}
-
-- (NSString *)dateFromFloat:(CGFloat)percent {
-    NSInteger interval = (maxHour - minHour) * 60;
-    NSInteger allMinutes = interval * percent;
-    NSInteger hour = allMinutes / 60;
-    NSInteger minute = allMinutes - 60 * hour;
-    
-    NSString *hourString = [self timeStringWithInt:(minHour + hour)];
-    NSString *minuteString = [self timeStringWithInt:minute];
-    return [NSString stringWithFormat:@"%@:%@", hourString, minuteString];
-    
-}
-
-- (NSString *)timeStringWithInt:(NSInteger)number {
-    NSString * s = [NSString stringWithFormat:@"%d", number];
-    NSString *prefix = @"";
-    if (s.length == 0)
-        prefix = @"00";
-    else if (s.length == 1)
-        prefix = @"0";
-    return [prefix stringByAppendingString:s];
-}
 
 - (void)cancel {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -95,7 +66,7 @@ static NSInteger maxHour = 22;
 }
 
 - (IBAction)sliderChanged:(id)sender {
-    self.timeLabel.text = [self dateFromFloat:self.timeSlider.value];
+    self.timeLabel.text = [JASolarPosition dateStringFromFloat:self.timeSlider.value];
 }
 
 - (void)venueWasSelected:(Venue *)venue {

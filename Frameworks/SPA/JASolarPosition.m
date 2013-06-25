@@ -11,6 +11,9 @@
 
 @implementation JASolarPosition
 
+static NSInteger minHour = 7;
+static NSInteger maxHour = 24;
+
 + (spa_data)azimuthAtLocation:(CLLocation *)location andDate:(NSDate *)date {
     spa_data spa;  //declare the SPA structure
     int result;
@@ -44,22 +47,9 @@
     
     result = spa_calculate(&spa);
     
+    /*
     if (result == 0)  //check for SPA errors
     {
-        //display the results inside the SPA structure
-        
-        printf("Julian Day:    %.6f\n",spa.jd);
-        printf("L:             %.6e degrees\n",spa.l);
-        printf("B:             %.6e degrees\n",spa.b);
-        printf("R:             %.6f AU\n",spa.r);
-        printf("H:             %.6f degrees\n",spa.h);
-        printf("Delta Psi:     %.6e degrees\n",spa.del_psi);
-        printf("Delta Epsilon: %.6e degrees\n",spa.del_epsilon);
-        printf("Epsilon:       %.6f degrees\n",spa.epsilon);
-        printf("Zenith:        %.6f degrees\n",spa.zenith);
-        printf("Azimuth:       %.6f degrees\n",spa.azimuth);
-        printf("Incidence:     %.6f degrees\n",spa.incidence);
-        
         min = 60.0*(spa.sunrise - (int)(spa.sunrise));
         sec = 60.0*(min - (int)min);
         printf("Sunrise:       %02d:%02d:%02d Local Time\n", (int)(spa.sunrise), (int)min, (int)sec);
@@ -69,8 +59,51 @@
         printf("Sunset:        %02d:%02d:%02d Local Time\n", (int)(spa.sunset), (int)min, (int)sec);
         
     }
-    
+    */
     return spa;
+}
+
++ (CGFloat)timeAsFloat:(NSDate *)date {
+    NSInteger interval = (maxHour - minHour) * 60;
+    NSDateComponents *componens = [[NSCalendar currentCalendar] components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:date];
+    NSInteger minutes = (componens.hour - minHour) * 60 + componens.minute;
+    CGFloat percent = 1.0f * minutes / interval;
+    return percent;
+}
+
++ (NSString *)dateStringFromFloat:(CGFloat)percent {
+    
+    NSDate *d = [self dateFromFloat:percent];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"HH:mm";
+    return [df stringFromDate:d];
+}
+
++ (NSDate *)dateFromFloat:(CGFloat)percent {
+    NSInteger interval = (maxHour - minHour) * 60;
+    NSInteger allMinutes = interval * percent;
+    NSInteger hour = allMinutes / 60;
+    NSInteger minute = allMinutes - 60 * hour;
+    
+    hour = minHour + hour;
+    
+    NSDate *date = [NSDate date];
+    NSDateComponents *c = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSTimeZoneCalendarUnit fromDate:date];
+    
+    c.hour = hour;
+    c.minute = minute;
+    date = [[NSCalendar currentCalendar] dateFromComponents:c];
+    return date;
+}
+
++ (NSString *)timeStringWithInt:(NSInteger)number {
+    NSString * s = [NSString stringWithFormat:@"%d", number];
+    NSString *prefix = @"";
+    if (s.length == 0)
+        prefix = @"00";
+    else if (s.length == 1)
+        prefix = @"0";
+    return [prefix stringByAppendingString:s];
 }
 
 

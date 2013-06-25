@@ -34,6 +34,7 @@
         _sunLine = [[GMSPolyline alloc] init];
         _sunLine.strokeColor = UIColorFromRGB(0xFFE545);
         _sunLine.strokeWidth = 3;
+        self.currentDate = [NSDate date];
     }
     return self;
 }
@@ -47,37 +48,82 @@
         dispatch_once(&onceToken, ^{
             GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude longitude:newLocation.coordinate.longitude zoom:16];
             
+            [self updatePinFromCoordinate:newLocation.coordinate];
             [self fetchPlaces];
             [self.mapView setCamera:camera];
             [self updateMapDrawings];
         });
     };
     self.mapView.myLocationEnabled = YES;
+    self.mapView.delegate = self;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(fetchPlaces)];
     
+    
+    self.pin = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 20, 20)];
+    self.pin.layer.cornerRadius = 10;
+    self.pin.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:self.pin];
+    [self.pin addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)]];
+    
+    self.pinMarker = [[GMSMarker alloc] init];
+}
+
+- (void)tapped:(UIPanGestureRecognizer *)recognizer {
+    
+    CGPoint point = [recognizer locationInView:self.view];
+    CLLocationCoordinate2D coordinate = [self.mapView.projection coordinateForPoint:point];
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        [self drawSunLineAt:[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude]];
+    } else if (recognizer.state == UIGestureRecognizerStateChanged) {
+        self.pin.center = point;
+        [self updatePinFromCoordinate:coordinate];
+    }
+}
+
+
+- (void)updatePinFromCoordinate:(CLLocationCoordinate2D)coordinate {
+    self.pinMarker.position = coordinate;
+    self.pinMarker.map = self.mapView;
+}
+
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+    CGPoint p = [mapView.projection pointForCoordinate:self.pinMarker.position];
+    self.pin.center = p;
+}
+
+- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    [self updatePinFromCoordinate:coordinate];
+    [self drawSunLineAt:[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude]];
+}
+
+- (void)drawSunLineAt:(CLLocation *)location {
+    CLLocation *sun = [MapViewController sunLocationFromObserver:location atDate:self.currentDate];
+    
+    GMSMutablePath *path = [GMSMutablePath path];
+    [path addCoordinate:sun.coordinate];
+    [path addCoordinate:location.coordinate];
+    _sunLine.path = path;
+    
+    _sunLine.map = self.mapView;
+
 }
 
 - (void)updateMapDrawings {
     CLLocation *newLocation = [LocationManager shared].currentLocation;
     
-    
-    CLLocation *sun = [MapViewController sunLocationFromObserver:newLocation];
-    GMSMutablePath *path = [GMSMutablePath path];
-    [path addCoordinate:sun.coordinate];
-    [path addCoordinate:newLocation.coordinate];
-    _sunLine.path = path;
-    
-    _sunLine.map = self.mapView;
+    [self drawSunLineAt:newLocation];
 }
 
 - (void)fetchPlaces {
     [self.mapView animateToBearing:0];
     
+    /*
     [[ZenitAPIClient sharedClient] closeVenues:^(NSArray *venues) {
         for (Venue *venue in venues) {
             venue.marker.map = self.mapView;
         }
     }];
+     */
     
     [[ZenitAPIClient sharedClient] currentWeatherData:^(WeatherData *weather) {
         self.title = [NSString stringWithFormat:@"Cloudiness: %d%%", weather.clouds.integerValue];
@@ -91,14 +137,19 @@
     [super viewDidAppear:animated];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    CGFloat p = [JASolarPosition timeAsFloat:[NSDate date]];
+    self.slider.value = p;
+    self.timeLabel.text = [JASolarPosition dateStringFromFloat:p];
 }
 
 - (IBAction)sliderChanged:(id)sender {
-    [self updateMapDrawings];
+    UISlider *slider = (UISlider *)sender;
+    self.currentDate = [JASolarPosition dateFromFloat:slider.value];
+    self.timeLabel.text = [JASolarPosition dateStringFromFloat:slider.value];
+    CLLocationCoordinate2D coordinate = self.pinMarker.position;
+    [self drawSunLineAt:[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude]];
 }
 
 - (IBAction)addButtonPressed:(id)sender {
@@ -107,10 +158,10 @@
     [self presentViewController:navCon animated:YES completion:nil];
 }
 
-+ (CLLocation *)sunLocationFromObserver:(CLLocation *)observer {
++ (CLLocation *)sunLocationFromObserver:(CLLocation *)observer atDate:(NSDate *)date {
     static CLLocationDistance radiusInMeter = 10000;
     
-    spa_data spa = [JASolarPosition azimuthAtLocation:observer andDate:[NSDate date]];
+    spa_data spa = [JASolarPosition azimuthAtLocation:observer andDate:date];
     
     CLLocationDegrees azimuth = spa.azimuth;
     
